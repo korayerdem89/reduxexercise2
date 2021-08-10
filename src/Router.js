@@ -1,24 +1,22 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-
-import {Text} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Primary from './pages/Primary';
 import Secondary from './pages/Secondary';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Primary" component={Primary} />
+      <Tab.Navigator>
+        <Tab.Screen name="Primary" component={Primary} />
         {/* options={{
            headerShown:false,  //options kullanımı önemli.dökümandan detaylı incele!
          }} */}
-        <Stack.Screen name="Secondary" component={Secondary} />
-      </Stack.Navigator>
+        <Tab.Screen name="Secondary" component={Secondary} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
