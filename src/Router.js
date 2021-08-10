@@ -13,15 +13,20 @@ const App = () => {
     <UserProvider>
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name="Primary" component={Primary} 
-          options={{
-          headerShown:false,  //options kullanımı önemli.dökümandan detaylı incele!
-        }}
-        />
-          <Tab.Screen name="Secondary" component={Secondary}
+          <Tab.Screen
+            name="Primary"
+            component={Primary}
             options={{
-              headerShown:false, 
-            }} />
+              headerShown: false, //options kullanımı önemli.dökümandan detaylı incele!
+            }}
+          />
+          <Tab.Screen
+            name="Secondary"
+            component={Secondary}
+            options={{
+              headerShown: false,
+            }}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </UserProvider>

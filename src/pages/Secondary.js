@@ -1,27 +1,19 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
-import {Text, SafeAreaView, TextInput, Button, View} from 'react-native';
-
+import React from 'react';
+import {Text, SafeAreaView, FlatList} from 'react-native';
+import {useSelector} from 'react-redux';
 const Secondary = () => {
-  const [text, setText] = useState('');
-  const handleAdd = () => {};
+  const list = useSelector(s => s.nameList);
+  const myUsername = useSelector(s => s.userName);
   return (
     <SafeAreaView>
       <Text style={{fontSize: 30}}>Secondary</Text>
-      <View
-        style={{
-          borderWidth: 1,
-          margin: 10,
-          padding: 5,
-          borderColor: '#e0e0e0',
-        }}>
-        <TextInput
-          value={text}
-          onChangeText={setText}
-          placeholder="İsim giriniz..."
-        />
-      </View>
-      <Button title="Ekle" onPress={handleAdd} />
+      <Text style={{fontSize: 30}}>Kullanıcı Adı: {myUsername} </Text>
+      <FlatList
+        keyExtractor={(_, index) => index.toString()}
+        data={list}
+        renderItem={({item}) => <Text>{item}</Text>}
+      />
     </SafeAreaView>
   );
 };
